@@ -1,0 +1,26 @@
+{
+	"name": "cat-bounce",
+	"version": "1.0.0",
+	"main": "./src/index.ts",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"build:prod": "npm run build -- --mode prod"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"@types/color": "^3.0.6",
+		"@types/matter-js": "^0.19.6",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.12",
+		"vite-plugin-static-copy": "^1.0.5"
+	},
+	"dependencies": {
+		"color": "^4.2.3",
+		"matter-js": "^0.19.0",
+		"poly-decomp": "^0.3.0"
+	}
+}

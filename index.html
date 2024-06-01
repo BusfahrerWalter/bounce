@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cat Bounce DE</title>
+
+	<link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+	<script src="./src/index.ts" type="module"></script>
+
+	<div id="settings">
+		<p>
+			<label for="cat-count">Cat count</label>
+			<input type="number" name="cat-count" id="cat-count" config="catCount" step="1">
+		</p>
+		<p>
+			<label for="cat-bounce">Cat bounce</label>
+			<input type="number" name="cat-bounce" id="cat-bounce" config="catBounce" step=".1" min="0">
+		</p>
+		<p>
+			<label for="cat-scale">Cat scale</label>
+			<input type="number" name="cat-scale" id="cat-scale" config="catScale" step=".1" min=".1" max="5">
+		</p>
+	</div>
+</body>
+</html>

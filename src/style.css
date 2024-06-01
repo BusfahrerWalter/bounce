@@ -1,0 +1,41 @@
+html, body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#settings {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 180px;
+	height: auto;
+	padding: 10px;
+	color: white;
+}
+
+#settings p {
+	display: flex;
+	margin-top: 0;
+}
+
+#settings p:last-child {
+	margin: 0;
+}
+
+label {
+	display: block;
+	width: 100px;
+	flex-shrink: 0;
+}
+
+input {
+	display: inline-block;
+	width: 100%;
+	flex-grow: 1;
+	background: #ffffff2a;
+	border: solid #ffffff7a 1px;
+	color: white;
+}
