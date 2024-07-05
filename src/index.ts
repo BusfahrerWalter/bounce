@@ -1,23 +1,39 @@
 import { CatWorld, CatWorldConfig } from "./CatWorld";
+import { Client } from "./Client";
+import { Util } from "./util/Util";
 
 type StringIndexable = {
 	[key: string]: any;
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
+	await CatWorld.init();
+
 	const config = (JSON.parse(localStorage.getItem('cat-data') ?? '{}')) as Partial<CatWorldConfig>;
-	const world = new CatWorld(window.innerWidth, window.innerHeight, config);
+	const world = new CatWorld(config);
+
+	// @ts-ignore
+	window.world = world;
+
+	// @ts-ignore
+	window.Util = Util;
+
+	const url = new URL(window.location.href);
+	if (url.searchParams.get('multiplayer') === 'yes') {
+		// @ts-ignore
+		window.client = new Client(world);
+	}
 
 	window.addEventListener('mousedown', evt => {
 		if (evt.button === 2) {
-			world.add(evt.pageX, evt.pageY);
+			world.addCat(evt.pageX, evt.pageY);
 		}
 	});
 
 	for (let i = 0; i < (config.catCount ?? 5); i++) {
-		const x = 100 + Math.floor(Math.random() * world.width - 200);
-		const y = 100 + Math.floor(Math.random() * world.height - 200);
-		world.add(x, y);
+		const x = 100 + Math.floor(Math.random() * window.innerWidth - 200);
+		const y = 100 + Math.floor(Math.random() * window.innerHeight - 200);
+		world.addCat(x, y);
 	}
 
 	const catCountInput = document.getElementById('cat-count') as HTMLInputElement;
@@ -42,4 +58,20 @@ window.addEventListener('DOMContentLoaded', () => {
 			localStorage.setItem('cat-data', JSON.stringify(config));
 		});
 	}
-}); 
+});
+
+// const logFn = console.log;
+// console.log = function(...data: any[]) {
+// 	let logContainer = document.getElementById('log-container');
+// 	if (!logContainer) {
+// 		logContainer = document.createElement('div');
+// 		logContainer.id = 'log-container';
+// 		document.body.append(logContainer);
+// 	}
+
+// 	for (const item of data) {
+// 		logContainer.innerHTML = `<br>${item}`;
+// 	}
+
+// 	return logFn(...data);
+// }

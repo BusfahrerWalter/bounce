@@ -39,3 +39,33 @@ input {
 	border: solid #ffffff7a 1px;
 	color: white;
 }
+
+*:not(input) {
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.user-name-tag {
+	position: fixed;
+	display: block;
+	z-index: 999;
+	font-size: 20px;
+	color: white;
+	text-shadow: 0 0 10px black;
+	text-align: center;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+    padding: 2px 5px
+}
+
+/* #log-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+	pointer-events: none;
+	background-color: black;
+	color: white;
+}*/

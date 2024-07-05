@@ -2,19 +2,15 @@
 	"compilerOptions": {
 		"target": "esnext",
 		"module": "esnext",
-		"moduleResolution": "node",
 		"strict": true,
+		"moduleResolution": "node",
 		"jsx": "preserve",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
-		"baseUrl": "./",
-		"paths": {
-			"@/*": [
-				"src/*"
-			]
-		}
+		"isolatedModules": true,
+		"baseUrl": "./"
 	},
 	"include": [
 		"src"
